@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,10 +20,15 @@ public class MusicActivity extends AppCompatActivity {
         numeroPreso = getIntent().getExtras().getInt("NumeroRandom");
         mostraCazone = findViewById(R.id.mostraCanzone);
         mostraCazone.setText(titoliCanzoni[numeroPreso]);
+        fotoCanzone = findViewById(R.id.fotoCanzone);
+        fotoCanzone.setImageResource(immagini[numeroPreso]);
+
+
     }
 
     int numeroPreso;
     TextView mostraCazone;
+    ImageView fotoCanzone;
 
     String[] titoliCanzoni = {
             "Metro Boomin, The Weeknd, 21 Savage - Creepin' (Visualizer)",
@@ -62,6 +68,20 @@ public class MusicActivity extends AppCompatActivity {
             "3",
             "10"
     };
+
+    int[] immagini = {
+            R.raw.n1,
+            R.raw.n2,
+            R.raw.n3,
+            R.raw.n4,
+            R.raw.n5,
+            R.raw.n6,
+            R.raw.n7,
+            R.raw.n8,
+            R.raw.n9,
+            R.raw.n10,
+    };
+
     public void cambiaActivity(View view) {
         Intent ActivityMusic = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(ActivityMusic);
